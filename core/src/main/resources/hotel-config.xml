@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 스프링 컨테이너 내에 디자인한 객체 클래스를 등록 -->
+	<bean id="hotel1" class="core.chap2.Hotel">
+		<property name="headChef" ref="asianChef"/>
+		<property name="restaurant" ref="asianRes"/>
+	</bean>
+	
+	
+	<bean id="asianRes" class="core.chap2.AsianRestaurant">
+	<property name="chef" ref="asianChef"/>
+	<property name="course" ref="sushi"/>
+	</bean>
+	
+	
+	<bean id="sushi" class="core.chap2.SushiCourse"/>
+	<bean id="asianChef" class="core.chap2.AsianChef"/>
+
+	<!-- ======================================================= -->
+	
+	<bean id="hotel2" class="core.chap2.Hotel">
+
+	<constructor-arg ref="western"/>
+	<constructor-arg ref="frenchChef"/>
+	</bean>
+	
+	<bean id="western" class="core.chap2.WesternRestaurant">
+		<constructor-arg ref="frenchChef"/>
+		<constructor-arg ref="frenchCourse"/>
+	</bean>
+
+	<bean id="frenchChef" class="core.chap2.FrenchChef"/>
+	<bean id="frenchCourse" class="core.chap2.FrenchCourse"/>
+	
+	
+
+</beans>
+
